@@ -8,24 +8,27 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-            }*/
+            }
             steps {
                 sh '''
-                /*ls -la
+                ls -la
                 node --version
                 npm --version
                 npm ci
                 npm run build
-                ls -la*/
-                echo "Build"
+                ls -la
                 '''
+            }*/
+            steps{
+                sh 'echo "Build"'
             }
         }
         stage('Test'){
+            // test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
             steps{
                 sh '''
                 echo "Test stage"
-                // test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
+                
                 npm test
                 '''
             }
