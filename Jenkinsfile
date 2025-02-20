@@ -22,7 +22,10 @@ pipeline {
         }
         stage('Test'){
             steps{
-                sh 'echo "Test stage"'
+                sh '''
+                echo "Test stage"
+                test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
+                '''
             }
         }
     }
