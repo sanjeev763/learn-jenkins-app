@@ -23,10 +23,17 @@ pipeline {
         }
         stage('Test'){
             // test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
+            agent{
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps{
+                echo 'Test stage'
                 sh '''
-                echo "Test stage"
-                npm test
+                    test -f build/index.html
+                    npm test
                 '''
             }
         }
