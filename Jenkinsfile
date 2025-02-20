@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent{
+           /* agent{
                 docker{
                     image 'node:18-alpine'
                     reuseNode true
@@ -18,13 +18,14 @@ pipeline {
                 npm run build
                 ls -la
                 '''
-            }
+            }*/
         }
         stage('Test'){
             steps{
                 sh '''
                 echo "Test stage"
-                test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
+                // test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
+                npm test
                 '''
             }
         }
