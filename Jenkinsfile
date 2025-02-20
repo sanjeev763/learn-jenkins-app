@@ -19,9 +19,7 @@ pipeline {
                 ls -la
                 '''
             }
-            steps{
-                sh 'echo "Build"'
-            }
+            
         }
         stage('Test'){
             // test -f /workspaces/learn-jenkins-app/src/index.js echo "file exists"
